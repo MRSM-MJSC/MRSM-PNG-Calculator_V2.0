@@ -1,6 +1,7 @@
-# 🧮 MRSM PNG Calculator V2.0
+# 🧮 MRSM PNG Calculator V2.0 (By Waldan)
 
-Satu aplikasi web ringkas, moden, dan mesra peranti mudah alih yang dibina khas untuk pelajar MRSM mengira serta menjejaki Pointer (PNG/GPA) mereka dengan mudah.
+Satu aplikasi web ringkas, moden, dan mesra peranti mudah alih yang dibina khas oleh **Waldan** untuk pelajar MRSM mengira serta menjejaki Pointer (PNG/GPA/CGPA) mereka dengan mudah.
+
 
 ## 🚀 Ciri-ciri Utama
 * **Pengiraan Tepat:** Menyokong sistem pengiraan gred akademik MRSM terbaharu.
