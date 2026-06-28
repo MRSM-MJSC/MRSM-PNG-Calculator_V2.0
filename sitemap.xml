@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- 1. Page Utama -->
+   <url>
+      <loc>https://mrsm-mjsc.github.io/MRSM-PNG-Calculator_V2.0/</loc>
+      <lastmod>2026-06-28</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
+   </url>
+   
+   <!-- 2. Page Lower Form -->
+   <url>
+      <loc>https://mrsm-mjsc.github.io/MRSM-PNG-Calculator_V2.0/lowerform/</loc>
+      <lastmod>2026-06-28</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <!-- 3. Page Form 4 -->
+   <url>
+      <loc>https://mrsm-mjsc.github.io/MRSM-PNG-Calculator_V2.0/form4/</loc>
+      <lastmod>2026-06-28</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <!-- 4. Page Form 5 -->
+   <url>
+      <loc>https://mrsm-mjsc.github.io/MRSM-PNG-Calculator_V2.0/form5/</loc>
+      <lastmod>2026-06-28</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <!-- 5. Page Contact -->
+   <url>
+      <loc>https://mrsm-mjsc.github.io/MRSM-PNG-Calculator_V2.0/contact/</loc>
+      <lastmod>2026-06-28</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+   </url>
+</urlset>
