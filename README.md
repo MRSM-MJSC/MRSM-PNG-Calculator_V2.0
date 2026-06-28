@@ -1,8 +1,8 @@
 # 🧮 MRSM PNG Calculator V2.0 (By Waldan, Azriff, Adlan)
 ## 🗯️Team Member
--**Waldan** Wafriullah Najmi bin Azizi
--**Azriff** Zeckry bin Mohd Samsul
--**Adlan** Zaquan bin Shamsul Anuar
+* **Waldan** Wafriullah Najmi bin Azizi
+* **Azriff** Zeckry bin Mohd Samsul
+* **Adlan** Zaquan bin Shamsul Anuar
 
 Satu aplikasi web ringkas, moden, dan mesra peranti mudah alih yang dibina khas untuk pelajar MRSM mengira serta menjejaki Pointer (PNG/GPA/CGPA) mereka dengan mudah.
 
