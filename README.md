@@ -4,17 +4,16 @@
 * **Azriff** Zeckry bin Mohd Samsul
 * **Adlan** Zaquan bin Shamsul Anuar
 
-Satu aplikasi web ringkas, moden, dan mesra peranti mudah alih yang dibina khas untuk pelajar MRSM mengira serta menjejaki Pointer (PNG/GPA/CGPA) mereka dengan mudah.
+Satu aplikasi web ringkas, moden, dan mesra peranti mudah alih yang dibina khas untuk pelajar MRSM mengira serta menjejaki Pointer (PNG/GPA) mereka dengan mudah.
 
 
 ## 🚀 Ciri-ciri Utama
 * **Pengiraan Tepat:** Menyokong sistem pengiraan gred akademik MRSM terbaharu.
 * **Penetapan Sasaran:** Membantu pelajar menetapkan matlamat (*academic goals*) untuk peperiksaan akan datang.
-* **Antaramuka Moden:** Reka bentuk mesra pengguna dengan elemen *frosty glass* (glassmorphism) yang kemas.
+* **Antaramuka Moden:** Reka bentuk mesra pengguna 
 * **Akses Mudah:** Boleh diakses terus secara atas talian melalui peranti iPad, telefon pintar, atau komputer.
 
 ## 🛠️ Teknologi & Peralatan
-* **Bahasa Utama:** HTML5, CSS3, dan JavaScript (Vanila).
 * **Reka Bentuk:** Responsive Web Design (dioptimumkan untuk skrin iPad dan telefon).
 
 ## 🔗 Pautan Laman Web
