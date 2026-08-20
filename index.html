@@ -22,18 +22,17 @@
 <link rel="icon" href="wlogoo.png?v=3" type="image/png">   
 <style>
 
-
+html {
+    height: 100%;
+}
 
 body {
-   
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("bg.JPG");
-    
- 
-    min-height: 50vh; 
-    
-  
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-attachment: fixed; 
-
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -41,15 +40,21 @@ body {
     font-family: Arial, sans-serif;
     color: white;
     margin: 0; 
+}
 
- }
-h1 { margin-bottom: 5px; margin-top: 120px; }
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 { margin-bottom: 5px; margin-top: 100px; }
 .section { margin: 15px 0; }
 label { display: block; margin: 8px 0 3px 0; font-weight: normal; }
 input[type="text"], input[type="number"] { padding: 5px; width: 120px; text-align: center; font-size: 16px; height:12px; }
-button { padding: 8px 16px; font-size: 16px; margin-top: 15px; cursor: pointer; }
-        
-    
+button { padding: 8px 16px; font-size: 16px; cursor: pointer; }
 
 .button-container {
     display: flex;
@@ -57,43 +62,34 @@ button { padding: 8px 16px; font-size: 16px; margin-top: 15px; cursor: pointer; 
     align-items: center;    
     justify-content: center;
     width: 100%;
-    margin-top: 120px;      
+    margin-top: 20px;      
 }
+
+
+button {
+    font-family: inherit;
+    font-weight: 400 !important; /* Kurangkan ketebalan font */
+    -webkit-font-smoothing: antialiased; /* Bagi font nampak smooth & clean */
+}
+
 
 .button-container button {
-    width: 200px;           
+    width: 280px;           
     margin: 10px 0;         
-    border-radius: 20px;    
-    border: none;
-    background-color: white;
-    color: black;
-    padding: 12px 24px;
+    border-radius: 12px;    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 18px 0;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.button-container button:hover {
-    transform: scale(1.05); 
+    transition: all 0.3s ease;
 }
 
 .btn-glass {
-    
-    background: rgba(255, 255, 255, 0.15); 
-    
-  
+    background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); 
-    
- 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    
-  
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    
- 
-    transition: all 0.3s ease;
-    
     color: white; 
 }
 
@@ -107,13 +103,15 @@ button { padding: 8px 16px; font-size: 16px; margin-top: 15px; cursor: pointer; 
   width: 100%;
   padding: 20px 0;
   text-align: center;
-  background: transparent; /* Tiada latar belakang */
+  background: transparent;
+  margin-top: auto;
 }
 
 .footer-container p {
-  color: rgba(224, 224, 224, 1.0); /* Tulisan yang sangat halus & tak mengganggu mata */
+  color: rgba(224, 224, 224, 1.0);
   font-size: 0.8rem;
   font-family: inherit;
+  margin: 5px 0;
 }
     
 #topBar {
@@ -130,7 +128,9 @@ button { padding: 8px 16px; font-size: 16px; margin-top: 15px; cursor: pointer; 
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 999;
+    box-sizing: border-box;
 }
+
 #logoGroup {
     position: fixed;
     top: 15px;
@@ -144,22 +144,15 @@ button { padding: 8px 16px; font-size: 16px; margin-top: 15px; cursor: pointer; 
     gap: 18px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-#topbarTitle { 
-    position: absolute;
-    left: 49.2%;
-    transform: translateX(-50%);
-    font-weight: bold; 
-    font-size: 30px; 
-    color: #000; 
-}
 
 #menuContainer {
     position: absolute;
-    top: 10px;    
-    right: 50px;  
+    top: 25px;    
+    right: 30px;  
     display: flex;
     align-items: center;
 }
+
 #menuDropdown {
     display: none;
     position: absolute;
@@ -173,78 +166,40 @@ button { padding: 8px 16px; font-size: 16px; margin-top: 15px; cursor: pointer; 
     min-width: 150px;
     z-index: 1000;
 }
-#result, #message { margin-top:10px; font-size:18px; font-weight:bold; }
-
 
 @media (max-width: 600px) {
     #topBar {
-        height: 45px; 
-        flex-direction: row; 
-        justify-content: space-between;
+        height: 55px; 
         padding: 5px 10px;
     }
 
     #logoGroup {
         position: static;
-        width: auto;
         padding: 5px 10px;
         gap: 8px;
-        flex-shrink: 1;
-        justify-content: flex-start;
     }
 
     #logoGroup img {
-        height: 20px;   
+        height: 24px !important;   
         width: auto;    
     }
 
     #menuContainer {
-        flex-shrink: 1;
-        justify-content: flex-end;
-        position: absolute;
-        top: 0.5px;    
-        right: 25px;  
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
+        position: static;
     }
     
     #menuContainer button {
-        padding: 3px 6px;
+        padding: 5px 10px;
         font-size: 12px;
     }
 
-
-    body {
-        margin-top: 55px;
-    }
-
     h1 {
-        margin-top: 60px;
+        margin-top: 80px;
         font-size: 24px;
-        
-    }
-
-    input[type="text"], input[type="number"] { 
-        width: 120px;
-    }
-    #markah {
-        width: 120px !important;
-        max-width: 120px;
-    }
-
-    #tutorialModal > div {
-        width: 95% !important;
-        max-width: 400px !important;
     }
 }    
-    
-  
 </style>
-
-
-
+</head>
 
 <body>
 
@@ -275,49 +230,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </div>
 
+<div class="main-content">
+    <h1>PNG Calculator</h1>
 
-
-<h1>PNG Calculator</h1>
-<br>
-
-<div class="button container">
-<button class='btn-glass' onclick="location.href='lowerform/index.html'" style="display:block; margin:20px auto; padding:20px 100px; font-size:16px; cursor:pointer; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: white;">
-Lower Form (F1-F3)
-</button>
-
-<button class='btn-glass' onclick="location.href='form4/index.html'" 
-    style="display:block; margin:20px auto; padding:20px 148px; font-size:16px; cursor:pointer; 
-    border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: white;">
-Form 4
-</button>
-
-
-<button class='btn-glass' onclick="location.href='form5/index.html'" style="display:block; margin:20px auto; padding:20px 148px; font-size:16px; cursor:pointer; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: white;">
-Form 5
-</button>
-
-<button class='btn-glass' onclick="window.open('https://sites.google.com/view/info-unit-ujian-bpm/sistem-png-mrsm?authuser=0', '_blank')" 
-        style="display:block; margin:20px auto; padding:20px 120px; font-size:16px; cursor:pointer; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: white;">
-  All About GPA
-</button>
-  
-
-<button class='btn-glass' onclick="location.href='contact/index.html'" style="display:block; margin:20px auto; padding:20px 128px; font-size:16px; cursor:pointer; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: white;">
-Contact Us 
-</button>    
+    <div class="button-container">
+        <button class='btn-glass' onclick="location.href='lowerform/index.html'">Lower Form (F1-F3)</button>
+        <button class='btn-glass' onclick="location.href='form4/index.html'">Form 4</button>
+        <button class='btn-glass' onclick="location.href='form5/index.html'">Form 5</button>
+        <button class='btn-glass' onclick="window.open('https://sites.google.com/view/info-unit-ujian-bpm/sistem-png-mrsm?authuser=0', '_blank')">All About GPA</button>
+        <button class='btn-glass' onclick="location.href='contact/index.html'">Contact Us</button>    
+    </div>
 </div>
 
-<div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content:center; align-items:center;">
+<div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content:center; align-items:center; z-index:1001;">
 <div style="background:white; padding:15px; border-radius:10px; width:90%; max-width:500px; text-align:center;">
 <h3>User Tutorial</h3>
-<video id="tutoVideo" width="100%" controls >
+<video id="tutoVideo" width="100%" controls>
 <source src="Tutorial.mp4" type="video/mp4">
 </video>
 <br><br>
 <button id="closeTutorial" style="padding:7px 18px; background:#ff4f4f; border:none; border-radius:5px; color:white; cursor:pointer;">Close ✖️</button>
 </div></div>
 
-    
 <script>
 const menuButton = document.getElementById("menuButton");
 const menuDropdown = document.getElementById("menuDropdown");
@@ -328,7 +262,6 @@ window.onclick = function(e) {
   }
 }
 
-
 window.onload = () => { document.getElementById("tutorialModal").style.display = "flex"; }
 document.getElementById("closeTutorial").onclick = () => {
     let video = document.getElementById("tutoVideo");
@@ -337,19 +270,12 @@ document.getElementById("closeTutorial").onclick = () => {
 }
 </script>
 
-<script data-goatcounter="https://mrsm-mjsc.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://mrsm-mjsc.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <footer class="footer-container">
-
   <p>© 2026 PNG Calculator V2.0. Hak Cipta Terpelihara.</p>
-  <p style="text-align: center; font-size: 0.8rem; opacity: 0.8; margin-top: 20px;">
-    Laman web ini menggunakan Google Analytics untuk menganalisis trafik. Data pengiraan gred anda diproses secara tempatan dan tidak disimpan.
-  </p>
+  <p>Laman web ini menggunakan Google Analytics untuk menganalisis trafik. Data pengiraan gred anda diproses secara tempatan dan tidak disimpan.</p>
 </footer>
-
-</footer>
-
 
 </body>
 </html>
