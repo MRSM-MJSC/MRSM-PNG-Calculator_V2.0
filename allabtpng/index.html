@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Info Unit Ujian BPM - PNG & GPI</title>
+  <title>PANDUAN PNG DAN GPI</title>
   <style>
     :root {
-      --primary-blue: #0f4c81;
-      --secondary-blue: #1e6091;
-      --accent-yellow: #f4a261;
-      --bg-color: #f8f9fa;
+      /* Palette Warna UI Moden (Slate & Royal Blue) */
+      --primary-blue: #1e293b;
+      --secondary-blue: #334155;
+      --accent-yellow: #3b82f6;
+      --bg-color: #f8fafc;
       --card-bg: #ffffff;
-      --text-dark: #2b2d42;
+      --text-dark: #0f172a;
     }
 
     * {
@@ -40,7 +41,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     }
 
     .nav-container {
@@ -66,25 +67,28 @@
       align-items: center;
     }
 
-    .nav-links a, .dropbtn {
+    /* DROPDOWN MENU */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropbtn {
       color: white;
       text-decoration: none;
       font-size: 0.95rem;
       background: none;
       border: none;
       cursor: pointer;
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: 4px;
       transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .nav-links a:hover, .dropbtn:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
-
-    /* DROPDOWN MENU */
-    .dropdown {
-      position: relative;
+    .dropbtn:hover, .dropdown.active .dropbtn {
+      background-color: rgba(255, 255, 255, 0.12);
     }
 
     .dropdown-content {
@@ -93,28 +97,32 @@
       top: 100%;
       left: 0;
       background-color: white;
-      min-width: 200px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-      border-radius: 6px;
+      min-width: 220px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
       overflow: hidden;
+      margin-top: 5px;
     }
 
     .dropdown-content a {
       color: var(--text-dark);
       padding: 12px 16px;
       display: block;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
     }
 
     .dropdown-content a:hover {
-      background-color: #f1f1f1;
-      color: var(--primary-blue);
+      background-color: #f1f5f9;
+      color: #2563eb;
     }
 
-    .dropdown:hover .dropdown-content {
+    .dropdown.active .dropdown-content {
       display: block;
     }
 
-    /* 2. HERO / HUB SECTION */
+    /* HERO / HUB SECTION */
     .hero-section {
       text-align: center;
       padding: 40px 0;
@@ -125,6 +133,7 @@
       font-size: 2.2rem;
       margin-bottom: 30px;
       font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
     .hub-grid {
@@ -137,7 +146,8 @@
       background: var(--card-bg);
       border-radius: 12px;
       padding: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      border: 1px solid #e2e8f0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -145,7 +155,6 @@
     }
 
     .hub-card.accent-yellow { border-top: 5px solid var(--accent-yellow); }
-    .hub-card.accent-blue { border-top: 5px solid var(--secondary-blue); }
 
     .hub-card h3 {
       color: var(--primary-blue);
@@ -156,7 +165,7 @@
     .btn {
       display: inline-block;
       padding: 10px 18px;
-      background-color: var(--primary-blue);
+      background-color: #2563eb;
       color: white;
       border-radius: 6px;
       text-decoration: none;
@@ -166,29 +175,10 @@
     }
 
     .btn:hover {
-      background-color: var(--secondary-blue);
+      background-color: #1d4ed8;
     }
 
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .btn-sub {
-      flex: 1;
-      font-size: 0.85rem;
-      background-color: #e2e8f0;
-      color: var(--text-dark);
-      text-align: center;
-    }
-
-    .btn-sub:hover {
-      background-color: var(--primary-blue);
-      color: white;
-    }
-
-    /* 3. TABLE SECTION */
+    /* TABLE SECTION */
     .table-section {
       margin-top: 40px;
     }
@@ -196,61 +186,107 @@
     .section-title {
       margin-bottom: 20px;
       color: var(--primary-blue);
-      font-size: 1.5rem;
-      border-bottom: 2px solid #ddd;
+      font-size: 1.4rem;
+      border-bottom: 2px solid #e2e8f0;
       padding-bottom: 8px;
+      font-weight: 700;
+    }
+
+    /* CONTAINER KAD JADUAL WITH SCROLL ARROW INDICATOR */
+    .table-card-wrapper {
+      position: relative;
+    }
+
+    .scroll-arrow-hint {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30, 41, 59, 0.85);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 10;
+      transition: opacity 0.3s ease, visibility 0.3s;
+      animation: bounceRight 1.5s infinite;
+    }
+
+    .scroll-arrow-hint.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    @keyframes bounceRight {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-50%) translateX(6px); }
     }
 
     .table-card {
       background: white;
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      border: 1px solid #e2e8f0;
       margin-bottom: 30px;
-    }
-
-    .table-header {
-      margin-bottom: 15px;
-    }
-
-    .table-header h3 {
-      color: var(--primary-blue);
-      font-size: 1.1rem;
-    }
-
-    .badge {
-      display: inline-block;
-      background-color: #fff3cd;
-      color: #856404;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      margin-top: 8px;
-      font-weight: 600;
+      overflow-x: auto;
+      scroll-behavior: smooth;
     }
 
     .styled-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 15px;
+      white-space: nowrap;
     }
 
     .styled-table th, .styled-table td {
-      padding: 12px 15px;
-      border: 1px solid #ddd;
+      padding: 11px 14px;
+      border: 1px solid #e2e8f0;
       text-align: center;
+      font-size: 0.875rem;
     }
 
     .styled-table th {
-      background-color: var(--primary-blue);
-      color: white;
+      background-color: #1e293b;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .styled-table th.sub-header {
+      background-color: #334155;
+      font-weight: 500;
+      color: #f1f5f9;
     }
 
     .styled-table tbody tr:nth-of-type(even) {
-      background-color: #f9f9f9;
+      background-color: #f8fafc;
     }
 
-    /* RESPONSIVE LAYOUT */
+    .styled-table tbody tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    .text-left {
+      text-align: left !important;
+    }
+
+    /* Style untuk nota di bawah jadual */
+    .table-note {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #64748b;
+      font-style: italic;
+    }
+
     @media (max-width: 768px) {
       .nav-container {
         flex-direction: column;
@@ -265,85 +301,209 @@
 </head>
 <body>
 
-  <!-- NAVIGATION BAR -->
   <header class="navbar">
     <div class="nav-container">
       <div class="brand">
         <span class="logo-icon">🎓</span>
-        <span class="brand-title">INFO UNIT UJIAN BPM</span>
+        <span class="brand-title">PANDUAN PENGIRAAN PNG</span>
       </div>
       <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#takwim">Takwim Peperiksaan</a>
-        <div class="dropdown">
-          <button class="dropbtn">Sistem PNG MRSM ▾</button>
+        <div class="dropdown" id="pngDropdown">
+          <button class="dropbtn" id="dropbtn">
+            Sistem PNG MRSM ▾
+          </button>
           <div class="dropdown-content">
-            <a href="#panduan">Panduan PNG & GPI</a>
+            <a href="#gred-menengah-rendah">Gred Menengah Rendah</a>
+            <a href="#gred-menengah-atas">Gred Menengah Atas</a>
             <a href="#pengiraan">Pengiraan PNG</a>
             <a href="#gred">Gred & Mata Nilai</a>
           </div>
         </div>
-        <a href="#jam-kredit">Jam Kredit Subjek</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <!-- HERO / HUB SECTION -->
     <section id="home" class="hero-section">
       <h1 class="main-title">SISTEM PNG MRSM</h1>
       
       <div class="hub-grid">
-        <!-- Card 1: Panduan -->
         <div class="hub-card accent-yellow">
           <div>
-            <h3>PANDUAN PNG & GPI</h3>
-            <p style="font-size: 0.9rem; color: #666;">Rujukan syarat dan panduan gred peperiksaan.</p>
+            <h3>WEBSITE PNG CALCULATOR V2.0</h3>
+            <p style="font-size: 0.9rem; color: #64748b;">Kalkulator PNG MRSM</p>
           </div>
-          <a href="#panduan" class="btn">Buka Panduan</a>
-        </div>
-
-        <!-- Card 2: Pengiraan PNG -->
-        <div class="hub-card accent-blue">
-          <h3>PENGIRAAN PNG</h3>
-          <div class="btn-group">
-            <a href="#" class="btn btn-sub">Menengah Atas</a>
-            <a href="#" class="btn btn-sub">Menengah Rendah</a>
-          </div>
-        </div>
-
-        <!-- Card 3: Pengiraan GPI -->
-        <div class="hub-card accent-blue">
-          <h3>PENGIRAAN GPI</h3>
-          <div class="btn-group">
-            <a href="#" class="btn btn-sub">Menengah Atas</a>
-            <a href="#" class="btn btn-sub">Menengah Rendah</a>
-          </div>
-        </div>
-
-        <!-- Card 4: Pengiraan GPS -->
-        <div class="hub-card accent-blue">
-          <h3>PENGIRAAN GPS</h3>
-          <div class="btn-group">
-            <a href="#" class="btn btn-sub">Menengah Atas</a>
-            <a href="#" class="btn btn-sub">Menengah Rendah</a>
-          </div>
+          <a href="https://mrsm-mjsc.github.io/MRSM-PNG-Calculator_V2.0/" class="btn">Lawat Website</a>
         </div>
       </div>
     </section>
 
-    <!-- TABLES SECTION -->
+    <section id="gred-menengah-rendah" class="table-section">
+      <h2 class="section-title">SKALA GRED MENENGAH RENDAH (GRED PNG)</h2>
+
+      <div class="table-card-wrapper">
+        <div class="scroll-arrow-hint" id="scrollArrowRendah" title="Scroll ke kanan">❯</div>
+        
+        <div class="table-card" id="gredRendahTableCard">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th rowspan="2">BIL</th>
+                <th rowspan="2" class="text-left">MATA PELAJARAN</th>
+                <th>A+</th>
+                <th>A</th>
+                <th>A-</th>
+                <th>B+</th>
+                <th>B</th>
+                <th>B-</th>
+                <th>C+</th>
+                <th>C</th>
+                <th>C-</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+              </tr>
+              <tr>
+                <th class="sub-header">4.00</th>
+                <th class="sub-header">4.00</th>
+                <th class="sub-header">3.67</th>
+                <th class="sub-header">3.33</th>
+                <th class="sub-header">3.00</th>
+                <th class="sub-header">2.67</th>
+                <th class="sub-header">2.33</th>
+                <th class="sub-header">2.00</th>
+                <th class="sub-header">1.67</th>
+                <th class="sub-header">1.33</th>
+                <th class="sub-header">1.00</th>
+                <th class="sub-header">0.00</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left"><strong>BAHASA MELAYU</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>2</td><td class="text-left"><strong>BAHASA INGGERIS</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>3</td><td class="text-left"><strong>MATEMATIK</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>4</td><td class="text-left"><strong>SAINS</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>5</td><td class="text-left"><strong>REKA BENTUK DAN TEKNOLOGI</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>6</td><td class="text-left"><strong>PENDIDIKAN ISLAM</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>7</td><td class="text-left"><strong>PENDIDIKAN MORAL</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>8</td><td class="text-left"><strong>BAHASA ARAB</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>9</td><td class="text-left"><strong>GEOGRAFI</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>10</td><td class="text-left"><strong>SEJARAH</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>11</td><td class="text-left"><strong>SENI VISUAL</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td>12</td><td class="text-left"><strong>PENDIDIKAN JASMANI DAN PENDIDIKAN KESIHATAN</strong></td><td>85 - 100</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="gred-menengah-atas" class="table-section">
+      <h2 class="section-title">SKALA GRED MENENGAH ATAS (GRED PNG)</h2>
+
+      <div class="table-card-wrapper">
+        <div class="scroll-arrow-hint" id="scrollArrowAtas" title="Scroll ke kanan">❯</div>
+        
+        <div class="table-card" id="gredAtasTableCard">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th class="text-left">SUBJEK</th>
+                <th>A+</th>
+                <th>A</th>
+                <th>A-</th>
+                <th>B+</th>
+                <th>B</th>
+                <th>B-</th>
+                <th>C+</th>
+                <th>C</th>
+                <th>C-</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="text-left"><strong>BAHASA MELAYU</strong></td><td>90 - 100</td><td>85 - 89</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>0 - 39</td></tr>
+              <tr><td class="text-left"><strong>BAHASA INGGERIS</strong></td><td>90 - 100</td><td>80 - 89</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td class="text-left"><strong>SEJARAH</strong></td><td>90 - 100</td><td>85 - 89</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>0 - 39</td></tr>
+              <tr><td class="text-left"><strong>PENDIDIKAN ISLAM</strong></td><td>90 - 100</td><td>85 - 89</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>0 - 39</td></tr>
+              <tr><td class="text-left"><strong>MATEMATIK</strong></td><td>90 - 100</td><td>80 - 89</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>0 - 34</td></tr>
+              <tr><td class="text-left"><strong>MATEMATIK TAMBAHAN</strong></td><td>85 - 100</td><td>75 - 84</td><td>65 - 74</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>30 - 34</td><td>25 - 29</td><td>0 - 24</td></tr>
+              <tr><td class="text-left"><strong>FIZIK</strong></td><td>90 - 100</td><td>75 - 89</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>30 - 34</td><td>0 - 29</td></tr>
+              <tr><td class="text-left"><strong>KIMIA</strong></td><td>90 - 100</td><td>75 - 89</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>30 - 34</td><td>0 - 29</td></tr>
+              <tr><td class="text-left"><strong>BIOLOGI</strong></td><td>90 - 100</td><td>75 - 89</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>35 - 39</td><td>30 - 34</td><td>0 - 29</td></tr>
+              <tr><td class="text-left"><strong>PRINSIP PERAKAUNAN</strong></td><td>90 - 100</td><td>85 - 89</td><td>80 - 84</td><td>75 - 79</td><td>70 - 74</td><td>65 - 69</td><td>60 - 64</td><td>55 - 59</td><td>50 - 54</td><td>45 - 49</td><td>40 - 44</td><td>0 - 39</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="pengiraan" class="table-section">
+      <h2 class="section-title">CONTOH JADUAL PENGIRAAN PNG</h2>
+
+      <div class="table-card">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th class="text-left">Subjek</th>
+              <th>Mata Nilaian</th>
+              <th>Jam Kredit</th>
+              <th>Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="text-left">Bahasa Melayu</td><td>4.00</td><td>3</td><td>12.00</td></tr>
+            <tr><td class="text-left">Bahasa Inggeris</td><td>3.67</td><td>3</td><td>11.01</td></tr>
+            <tr><td class="text-left">Matematik</td><td>4.00</td><td>4</td><td>16.00</td></tr>
+            <tr><td class="text-left">Matematik Tambahan</td><td>3.33</td><td>4</td><td>13.32</td></tr>
+            <tr><td class="text-left">Sejarah</td><td>3.67</td><td>2</td><td>7.34</td></tr>
+            <tr><td class="text-left">P. Agama Islam</td><td>4.00</td><td>2</td><td>8.00</td></tr>
+            <tr><td class="text-left">Fizik</td><td>3.00</td><td>3</td><td>9.00</td></tr>
+            <tr><td class="text-left">Biologi / Akaun</td><td>3.67</td><td>3</td><td>11.01</td></tr>
+            <tr><td class="text-left">Kimia</td><td>3.33</td><td>3</td><td>9.99</td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" class="text-left">Jumlah (Mata Nilaian × Jam Kredit)</td>
+              <td>97.67</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-left">Jumlah Jam Kredit</td>
+              <td>27</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td colspan="4" style="color: var(--primary-blue); font-weight: bold; text-align: center;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                  <span>PNG Semester =</span>
+                  <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle;">
+                    <span style="border-bottom: 2px solid var(--primary-blue); padding: 0 8px; margin-bottom: 2px;">
+                      Jumlah (Mata Nilaian × Jam Kredit)
+                    </span>
+                    <span style="padding: 0 8px;">
+                      Jumlah Jam Kredit
+                    </span>
+                  </div>
+                  <span>=</span>
+                  <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle;">
+                    <span style="border-bottom: 2px solid var(--primary-blue); padding: 0 5px; margin-bottom: 2px;">97.67</span>
+                    <span style="padding: 0 5px;">27</span>
+                  </div>
+                  <span>= 3.62</span>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <p class="table-note">PERHATIAN: Jadual ini hanyalah contoh pengiraan PNG tanpa mengikut nilai jam kredit subjek yang sebenar</p>
+      </div>
+    </section>
+
     <section id="gred" class="table-section">
       <h2 class="section-title">GRED DAN MATA NILAIAN (GRED PNG)</h2>
 
-      <!-- Table: Sistem Baharu -->
       <div class="table-card">
-        <div class="table-header">
-          <h3>BAHAGIAN PENDIDIKAN MENENGAH MARA</h3>
-          <p style="font-size: 0.9rem; font-weight: bold; color: #444;">GRED & MATA NILAIAN (GRED PNG) [MATA NILAIAN BAHARU]</p>
-          <span class="badge">[ BERMULA KOHORT TINGKATAN 1 DAN 4 2023 ]</span>
-        </div>
-        
         <table class="styled-table">
           <thead>
             <tr>
@@ -360,6 +520,7 @@
             <tr><td><strong>B-</strong></td><td>2.67</td></tr>
             <tr><td><strong>C+</strong></td><td>2.33</td></tr>
             <tr><td><strong>C</strong></td><td>2.00</td></tr>
+            <tr><td><strong>C-</strong></td><td>1.67</td></tr>
             <tr><td><strong>D</strong></td><td>1.33</td></tr>
             <tr><td><strong>E</strong></td><td>1.00</td></tr>
             <tr><td><strong>F</strong></td><td>0.00</td></tr>
@@ -370,21 +531,63 @@
   </main>
 
   <script>
-    // Smooth scrolling untuk link menu navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // 1. DROPDOWN TOGGLE CONTROL
+    const dropdown = document.getElementById('pngDropdown');
+    const dropbtn = document.getElementById('dropbtn');
+
+    dropbtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.dropdown-content a, a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
-        if(targetId !== '#') {
+        if (targetId.startsWith('#') && targetId.length > 1) {
           e.preventDefault();
+          dropdown.classList.remove('active');
           const target = document.querySelector(targetId);
-          if(target) {
-            target.scrollIntoView({
-              behavior: 'smooth'
-            });
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
           }
         }
       });
     });
+
+    // 2. SCROLL ARROW INDICATOR MANAGEMENT (MENENGAH RENDAH & ATAS)
+    function setupScrollHint(tableId, arrowId) {
+      const tableCard = document.getElementById(tableId);
+      const scrollArrow = document.getElementById(arrowId);
+
+      if (!tableCard || !scrollArrow) return;
+
+      function checkScrollPosition() {
+        const maxScrollLeft = tableCard.scrollWidth - tableCard.clientWidth;
+        if (maxScrollLeft <= 5 || tableCard.scrollLeft >= maxScrollLeft - 10) {
+          scrollArrow.classList.add('hidden');
+        } else {
+          scrollArrow.classList.remove('hidden');
+        }
+      }
+
+      scrollArrow.addEventListener('click', function() {
+        tableCard.scrollBy({ left: 150, behavior: 'smooth' });
+      });
+
+      tableCard.addEventListener('scroll', checkScrollPosition);
+      window.addEventListener('resize', checkScrollPosition);
+      window.addEventListener('load', checkScrollPosition);
+      checkScrollPosition();
+    }
+
+    setupScrollHint('gredRendahTableCard', 'scrollArrowRendah');
+    setupScrollHint('gredAtasTableCard', 'scrollArrowAtas');
   </script>
 </body>
 </html>
